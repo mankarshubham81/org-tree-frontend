@@ -2,13 +2,13 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const fetchEmployees = createAsyncThunk('employees/fetch', async () => {
-  const res = await axios.get('http://localhost:4000/api/employees');
+  const res = await axios.get(`${import.meta.env.VITE_API_BASE}/api/employees`);
   return res.data;
 });
 
 export const addEmployee = createAsyncThunk('employees/add', async (formData) => {
-  await axios.post('http://localhost:4000/api/employees', formData);
-  const res = await axios.get('http://localhost:4000/api/employees');
+  await axios.post(`${import.meta.env.VITE_API_BASE}/api/employees`, formData);
+  const res = await axios.get(`${import.meta.env.VITE_API_BASE}/api/employees`);
   return res.data;
 });
 

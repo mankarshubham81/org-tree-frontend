@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:4000/api/employees';
+// const VITE_API_BASE = `${import.meta.env.VITE_API_BASE}/api/employees`;
 
-export const fetchTree = () => axios.get(`${API_BASE}/tree`);
+export const fetchTree = () => axios.get(`${import.meta.env.VITE_API_BASE}/tree`);
 export const addEmployee = formData =>
-  axios.post(`${API_BASE}`, formData, {
+  axios.post(`${import.meta.env.VITE_API_BASE}`, formData, {
     headers: { 'Content-Type': 'multipart/form-data' }
   });
