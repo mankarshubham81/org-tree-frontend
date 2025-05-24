@@ -1,55 +1,63 @@
-/* TreeView.css */
 .tree-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background: #f0f4f8;
   }
   
   .tree-node {
-    margin-left: 20px;
     position: relative;
-    border-left: 2px dashed #ccc;
-    padding-left: 20px;
-    margin-bottom: 10px;
+    text-align: center;
+    margin: 0 20px;
   }
   
-  .tree-node::before {
+  /* connector down */
+  .tree-node::after {
     content: '';
     position: absolute;
-    top: 18px;
-    left: 0;
-    width: 12px;
-    height: 2px;
-    background-color: #ccc;
+    top: 100%;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: #ccc;
+  }
+  
+  /* remove line for leaf */
+  .tree-node:only-child::after {
+    display: none;
+  }
+  
+  .tree-children {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
   }
   
   .employee-card {
-    display: flex;
+    background: white;
+    padding: 16px 24px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: inline-flex;
     align-items: center;
     gap: 12px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 12px 16px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease;
   }
   
   .employee-card:hover {
-    transform: translateY(-2px);
-    background-color: #f0f8ff;
+    transform: translateY(-4px);
   }
   
   .employee-image {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #0077cc;
   }
   
-  .employee-details {
-    display: flex;
-    flex-direction: column;
+  .employee-info {
+    text-align: left;
   }
   
   .employee-name {
@@ -58,15 +66,8 @@
     color: #333;
   }
   
-  .employee-designation {
+  .employee-role {
     font-size: 14px;
     color: #666;
-  }
-  
-  @media (max-width: 600px) {
-    .employee-card {
-      flex-direction: column;
-      align-items: flex-start;
-    }
   }
   

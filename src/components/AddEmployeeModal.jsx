@@ -1,4 +1,3 @@
-// src/components/AddEmployeeModal.jsx
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addEmployee, fetchEmployees } from '../features/employeeSlice';
@@ -12,7 +11,7 @@ const AddEmployeeModal = () => {
     dob: '',
     experience: '',
     reportingManager: '',
-    image: null
+    image: null,
   });
 
   const dispatch = useDispatch();
@@ -26,30 +25,55 @@ const AddEmployeeModal = () => {
     const { name, value, files } = e.target;
     setForm((prev) => ({
       ...prev,
-      [name]: files ? files[0] : value
+      [name]: files ? files[0] : value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData();
-    for (const key in form) data.append(key, form[key]);
+    Object.entries(form).forEach(([k, v]) => data.append(k, v));
     await dispatch(addEmployee(data));
     setShow(false);
   };
 
   return (
-    <div>
-      <button onClick={() => setShow(true)} className="open-modal-button">Add Employee</button>
+    <>
+      <button onClick={() => setShow(true)} className="open-modal-button">
+        + Add Employee
+      </button>
       {show && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <h2 className="modal-title">Add Employee</h2>
-            <form onSubmit={handleSubmit} className="modal-form">
-              <input type="text" name="name" placeholder="Name" required onChange={handleChange} />
-              <input type="text" name="designation" placeholder="Designation" required onChange={handleChange} />
-              <input type="date" name="dob" required onChange={handleChange} />
-              <input type="number" name="experience" placeholder="Years of Experience" required onChange={handleChange} />
+            <h2>Add Employee</h2>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                onChange={handleChange}
+              />
+              <input
+                type="text"
+                name="designation"
+                placeholder="Designation"
+                required
+                onChange={handleChange}
+              />
+              <input
+                type="date"
+                name="dob"
+                required
+                onChange={handleChange}
+              />
+              <input
+                type="number"
+                name="experience"
+                placeholder="Years of Experience"
+                required
+                onChange={handleChange}
+              />
               <select name="reportingManager" onChange={handleChange}>
                 <option value="">No Manager</option>
                 {flat.map((emp) => (
@@ -58,16 +82,30 @@ const AddEmployeeModal = () => {
                   </option>
                 ))}
               </select>
-              <input type="file" name="image" accept="image/*" required onChange={handleChange} />
+              <input
+                type="file"
+                name="image"
+                accept="image/*"
+                required
+                onChange={handleChange}
+              />
               <div className="modal-buttons">
-                <button type="button" onClick={() => setShow(false)} className="cancel-button">Cancel</button>
-                <button type="submit" className="submit-button">Submit</button>
+                <button
+                  type="button"
+                  onClick={() => setShow(false)}
+                  className="cancel-button"
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="submit-button">
+                  Submit
+                </button>
               </div>
             </form>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

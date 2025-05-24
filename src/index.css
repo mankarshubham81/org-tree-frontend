@@ -1,24 +1,33 @@
-/* src/index.css */
-body {
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f7fa;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
   color: #333;
 }
 
-button {
-  cursor: pointer;
-  font-size: 14px;
+.header {
+  display: flex;
+  align-items: center;
+  padding: 24px 40px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-input,
-select,
-textarea {
-  font-family: inherit;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 4px;
-  width: 100%;
-  box-sizing: border-box;
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.status-text {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.status-text.error {
+  color: #c00;
 }
