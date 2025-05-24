@@ -1,0 +1,72 @@
+/* TreeView.css */
+.tree-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .tree-node {
+    margin-left: 20px;
+    position: relative;
+    border-left: 2px dashed #ccc;
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .tree-node::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: 0;
+    width: 12px;
+    height: 2px;
+    background-color: #ccc;
+  }
+  
+  .employee-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+  }
+  
+  .employee-card:hover {
+    transform: translateY(-2px);
+    background-color: #f0f8ff;
+  }
+  
+  .employee-image {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #0077cc;
+  }
+  
+  .employee-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .employee-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .employee-designation {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  @media (max-width: 600px) {
+    .employee-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
