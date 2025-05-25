@@ -5,7 +5,7 @@ const TreeNode = ({ node }) => (
   <div className="tree-node">
     <div className="employee-card">
       <img
-        src={`http://localhost:4000${node.image}`}
+        src={`${node.image}`}
         alt={node.name}
         className="employee-image"
       />
