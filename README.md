@@ -22,7 +22,8 @@ org-tree-frontend/
 ├── src/
 │   ├── components/        # UI components (TreeView, AddEmployeeModal)
 │   ├── features/          # Redux slices and async thunks
-│   ├── store.js           # Redux store configuration
+│   ├── app/
+    └── store.js         # Redux store configuration         
 │   ├── App.jsx            # Root application component
 │   ├── main.jsx           # Vite entry point
 │   └── styles/            # Global and component-specific CSS
