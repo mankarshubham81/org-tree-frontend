@@ -1,47 +1,47 @@
-/* src/components/TreeView.css */
-
+/* Root container */
 .tree-container {
   display: flex;
   justify-content: center;
-  padding: 40px 20px;
-  background: #f0f4f8;
+  padding: 50px 20px;
+  background: #f7f9fb;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Each node in the tree */
+/* Each node wrapper */
 .tree-node {
   position: relative;
   text-align: center;
-  margin: 0 20px;
-  padding-top: 20px; /* space for the vertical connector */
+  margin: 0 30px;
+  padding-top: 25px; /* space for vertical connector */
+  --connector-color: #ccc; /* fallback */
 }
 
-/* Vertical line connecting parent node down to its children */
+/* Vertical connector down from this node */
 .tree-node::after {
   content: '';
   position: absolute;
   top: 0;
   left: 50%;
   width: 2px;
-  height: 20px;
-  background: #ccc;
+  height: 25px;
+  background: var(--connector-color);
 }
 
-/* When a node is the only child, hide its connector */
+/* Hide connector if only child */
 .tree-node:only-child::after {
   display: none;
 }
 
-/* Container for all direct children of a node */
+/* Children container */
 .tree-children {
   display: flex;
   justify-content: center;
   position: relative;
-  margin-top: 20px;
-  padding-top: 20px; /* space above for the horizontal connector */
+  margin-top: 30px;
+  padding-top: 20px; /* space for horizontal connector */
 }
 
-/* Horizontal line connecting multiple siblings */
+/* Horizontal connector between siblings */
 .tree-children::before {
   content: '';
   position: absolute;
@@ -49,10 +49,10 @@
   left: 10%;
   width: 80%;
   height: 2px;
-  background: #ccc;
+  background: var(--connector-color);
 }
 
-/* Vertical line down from the horizontal connector to each child */
+/* Vertical connectors down to each child */
 .tree-children .tree-node::before {
   content: '';
   position: absolute;
@@ -60,71 +60,70 @@
   left: 50%;
   width: 2px;
   height: 20px;
-  background: #ccc;
+  background: var(--connector-color);
 }
 
-/* Card styling */
+/* Employee card */
 .employee-card {
   background: #fff;
-  padding: 16px 24px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 18px 26px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  gap: 14px;
+  border-left: 4px solid; /* colored in-line */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Hover effect */
+/* Hover lift */
 .employee-card:hover {
-  transform: translateY(-4px);
-  background-color: #e8f4fd;
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* Profile image */
 .employee-image {
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #0077cc;
+  border: 2px solid #fff;
 }
 
-/* Text container */
+/* Text block */
 .employee-info {
   text-align: left;
 }
 
-/* Name styling */
+/* Name */
 .employee-name {
   font-size: 16px;
   font-weight: 600;
-  color: #333;
+  color: #212121;
 }
 
-/* Role/Designation styling */
+/* Role/Designation */
 .employee-role {
   font-size: 14px;
-  color: #555;
+  color: #555555;
   margin-top: 4px;
 }
 
-/* Responsive tweaks */
+/* Responsive: stack vertically on small screens */
 @media (max-width: 600px) {
   .tree-container {
     flex-direction: column;
     align-items: center;
   }
   .tree-node {
-    margin: 20px 0;
+    margin: 25px 0;
   }
   .tree-children {
     flex-direction: column;
     padding-top: 10px;
   }
-  .tree-children::before {
-    display: none;
-  }
+  .tree-children::before,
   .tree-children .tree-node::before {
     display: none;
   }
@@ -132,6 +131,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 8px;
   }
   .employee-info {
     margin-top: 8px;
