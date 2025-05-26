@@ -1,6 +1,8 @@
 # Organization Tree Frontend
+![image](https://github.com/user-attachments/assets/5cd0789a-8b6e-4dd1-9dde-90065b91a6e9)
 
-A modern, responsive React application built with Vite and Redux Toolkit to visualize and manage an organizational chart. Users can view employee hierarchies and add new employees via a modal form with image upload and reporting manager assignment.
+
+A modern, responsive React application built with Vite and Redux Toolkit to visualize and manage an organizational chart. Users can view employee hierarchies and add new employees via a modal form with image upload.
 
 ---
 
